@@ -8,6 +8,12 @@
   </url>
 
   <url>
+    <loc>https://ptforge.ai/about</loc>
+    <lastmod>2025-11-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>https://ptforge.ai/privacy-policy</loc>
     <lastmod>2025-11-07</lastmod>
     <priority>0.8</priority>
@@ -36,5 +42,6 @@
     <lastmod>2025-11-07</lastmod>
     <priority>0.7</priority>
   </url>
+
 
 </urlset>

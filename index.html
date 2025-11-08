@@ -3,9 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>PTForge Sitemap</title>
-    <meta http-equiv="refresh" content="0; url=sitemap.xml">
+    <script>
+      (async () => {
+        try {
+          // Fetch your static sitemap
+          const response = await fetch('sitemap.xml');
+          const text = await response.text();
+
+          // Replace all <lastmod> dates with today's date in YYYY-MM-DD format
+          const today = new Date().toISOString().split('T')[0];
+          const updated = text.replace(/<lastmod>.*?<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+
+          // Create a temporary blob URL and redirect immediately
+          const blob = new Blob([updated], { type: 'application/xml' });
+          const url = URL.createObjectURL(blob);
+          window.location.replace(url);
+        } catch (error) {
+          // If anything fails, just load the normal sitemap
+          window.location.href = 'sitemap.xml';
+        }
+      })();
+    </script>
   </head>
   <body style="font-family:Inter,Arial,sans-serif; text-align:center; padding:50px;">
-    <p>If you are not redirected automatically, <a href="sitemap.xml" style="color:#007BFF;">click here to view the sitemap</a>.</p>
+    <p>Loading sitemap...</p>
   </body>
 </html>

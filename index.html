@@ -6,8 +6,9 @@
     <script>
       (async () => {
         try {
-          // Fetch your static sitemap
-          const response = await fetch('sitemap.xml');
+          // Add a cache-busting parameter to force a fresh fetch
+          const cacheBuster = '?v=' + Date.now();
+          const response = await fetch('sitemap.xml' + cacheBuster);
           const text = await response.text();
 
           // Replace all <lastmod> dates with today's date in YYYY-MM-DD format
